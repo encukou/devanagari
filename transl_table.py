@@ -18,7 +18,7 @@ phonetic, r_phonetic=mkTries({
     u"áu": u"āu",
 
     u"H": u"ḥ",
-    u"M*": u"ṁ",
+    u"M=": u"ṁ",
     u"M": u"ṃ",
 
     u"ń": u"ṅ",
