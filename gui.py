@@ -214,7 +214,9 @@ credits=u"""
 <body>
 <h1>Program na transkripci Dēvanāgarī</h1>
 <div>Verze %(version)s</div>
-<div>Copyright © 2008, Petr Viktorin</div>
+<div>Copyright © 2008, Petr Viktorin (encukou@gmail.com)</div>
+<div>Zdrojový kód je k dispozici na Launchpadu
+  (http://bazaar.launchpad.net/~encukou/+junk/devanagari-main).</div>
 </body>
 </html>
 """ % {'version': version}
