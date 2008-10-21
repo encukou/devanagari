@@ -1,0 +1,14 @@
+This program converts (a variant of) Czech phonetic transcription to Devanagari.
+
+There are two parts of the program:
+ - A transcription library, under an MIT license
+ - A Czech PyQt4-based GUI, under GPLv3
+
+The GUI lives in gui.py, the library in the other files.
+transl_table.py is a configuration file of sorts, it completely defines the
+transcription process. It should be user-editable. If an error occurs in that
+file, the hard-wired defaults from table.py get loaded in.
+
+All Czech strings are in gui.py - translate them to another language if you
+want to. If you do, you might also want to modify the (phonetic, r_phonetic)
+tables in transl_table.py and table.py to better suit your keyboard.
