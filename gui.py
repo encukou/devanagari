@@ -28,7 +28,7 @@ from PyQt4.Qt import Qt
 class MainWindow(QtGui.QMainWindow):
   def __init__(self):
     QtGui.QMainWindow.__init__(self)
-    self.setWindowTitle(u"अण्डज") # aṇḍaja
+    self.setWindowTitle(u"अजगर") # ajagara
     widget=QtGui.QWidget()
     layout=QtGui.QGridLayout(widget)
     self.setCentralWidget(widget)
@@ -198,7 +198,7 @@ general_help=u"""
 <div>Program umí převádět textové soubory: zvolte příslušnou položku v menu
   Soubor a vyberte zdrojový a cílový soubor.</div>
 <div>Zdrojový soubor musí používat kódování UTF-8. (Pro převod na UTF-8 se dá
-  použít třeba Poznámkový blok.)</div>
+  použít třeba Poznámkový blok - příkaz Uložit jako.)</div>
 <div>Program při převodu vynechává HTML značky.</div>
 </body>
 </html>
