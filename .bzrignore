@@ -1,0 +1,7 @@
+build/
+from-devanagari.py
+picwork/
+*.txt
+*.txt.dev
+to-devanagari.py
+

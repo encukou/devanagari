@@ -20,6 +20,7 @@
 import sys,codecs
 import table
 from devanagari import *
+from version import version
 
 from PyQt4 import QtCore,QtGui
 from PyQt4.Qt import Qt
@@ -41,7 +42,7 @@ class MainWindow(QtGui.QMainWindow):
       layout.addWidget(QtGui.QLabel(u"Chyba čtení ze souboru transl_table, používám vestavěnou tabulku"),0,0,1,3)
     layout.addWidget(src,1,1,1,2)
     layout.addWidget(pho,2,1,1,2)
-    layout.addWidget(dst,3,1)
+    layout.addWidget(dst,3,1,1,2)
     layout.setColumnStretch(1,2)
     #layout.addWidget(copyD,1,3)
     #layout.addWidget(copyS,2,3)
@@ -212,11 +213,11 @@ credits=u"""
 </head>
 <body>
 <h1>Program na transkripci Dēvanāgarī</h1>
-<div>Verze 0.1.0</div>
+<div>Verze %(version)s</div>
 <div>Copyright © 2008, Petr Viktorin</div>
 </body>
 </html>
-"""
+""" % {'version': version}
 
 license=u"""
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
