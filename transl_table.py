@@ -125,7 +125,7 @@ devanagari,r_devanagari=mkTries({
   u"s": (u"स",   suffix1),
   u"h": (u"ह",   suffix1),
   u"kr": (u"क्र",   suffix1),
-  u"kš": (u"क्ष",   suffix1),
+  u"kṣ": (u"क्ष",   suffix1),
   u"gr": (u"ग्र",   suffix1),
   u"gl": (u"ग्ल",   suffix1),
   u"ghr": (u"घ्र",   suffix1),
