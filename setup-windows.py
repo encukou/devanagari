@@ -2,11 +2,19 @@
 
 from distutils.core import setup
 import py2exe
+import os
 
 from setup import setup_params
 
-import psyco
-psyco.full()
+dllList = ('msvcp90.dll')
+
+origIsSystemDLL = py2exe.build_exe.isSystemDLL
+def isSystemDLL(pathname):
+       if os.path.basename(pathname).lower() in dllList:
+               return 0
+       return origIsSystemDLL(pathname)
+py2exe.build_exe.isSystemDLL = isSystemDLL
+
 
 setup_params['zipfile']="library.p2e";
 setup_params['windows']=[{
@@ -16,7 +24,7 @@ setup_params['windows']=[{
               }]
 setup_params['options']={
                 "py2exe":{
-                        "includes": ["sip","SendKeys","sys"],
+                        "includes": ["sip","sys"],
                         "excludes": ["Tkconstants","Tkinter","tcl"],
                         "compressed": 0,
                         "optimize": 2,

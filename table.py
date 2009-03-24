@@ -112,7 +112,7 @@ try:
 except Exception, e:
   """ Load the hard-wired default tables if something goes wrong. """
   print e
-  load("""
+  phonetic, r_phonetic, devanagari, r_devanagari = load("""
 # Encoding: UTF-8
 
 phonetic, r_phonetic=mkTries({
