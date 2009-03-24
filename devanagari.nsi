@@ -48,19 +48,17 @@ Section "Devanagari"
   File "bz2.pyd"
   File "Devanagari.exe"
   File "library.p2e"
-  File "mingwm10.dll"
-  File "MSVCR71.dll"
+  File "MSVCP90.dll"
   File "PyQt4.Qt.pyd"
   File "PyQt4.QtCore.pyd"
   File "PyQt4.QtGui.pyd"
-  File "python25.dll"
+  File "python26.dll"
   File "QtCore4.dll"
   File "QtGui4.dll"
   File "sip.pyd"
   File "transl_table.py"
   File "unicodedata.pyd"
   File "w9xpopen.exe"
-  File "_sendkeys.pyd"
   
   ; Write the installation path into the registry
   WriteRegStr HKLM Software\EnCuKou\Devanagari "Install_Dir" "$INSTDIR"
@@ -99,19 +97,17 @@ Section "Uninstall"
   Delete $INSTDIR\bz2.pyd
   Delete $INSTDIR\Devanagari.exe
   Delete $INSTDIR\library.p2e
-  Delete $INSTDIR\mingwm10.dll
-  Delete $INSTDIR\MSVCR71.dll
+  Delete $INSTDIR\MSVCP90.dll
   Delete $INSTDIR\PyQt4.Qt.pyd
   Delete $INSTDIR\PyQt4.QtCore.pyd
   Delete $INSTDIR\PyQt4.QtGui.pyd
-  Delete $INSTDIR\python25.dll
+  Delete $INSTDIR\python26.dll
   Delete $INSTDIR\QtCore4.dll
   Delete $INSTDIR\QtGui4.dll
   Delete $INSTDIR\sip.pyd
   Delete $INSTDIR\transl_table.py
   Delete $INSTDIR\unicodedata.pyd
   Delete $INSTDIR\w9xpopen.exe
-  Delete $INSTDIR\_sendkeys.pyd
 
   ; Remove shortcuts, if any
   Delete "$SMPROGRAMS\Devanagari\*.*"
