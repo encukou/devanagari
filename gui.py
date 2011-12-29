@@ -60,7 +60,6 @@ class MainWindow(QtGui.QMainWindow):
         layout.addWidget(QtGui.QLabel(u"Z klávesnice"),1,0,Qt.AlignRight)
         layout.addWidget(QtGui.QLabel(u"Foneticky"),2,0,Qt.AlignRight)
         layout.addWidget(QtGui.QLabel(u"Dēvanāgarī"),3,0,Qt.AlignRight)
-        self.setMaximumHeight(self.sizeHint().height())
         menubar=QtGui.QMenuBar()
         mnu_file=menubar.addMenu(u"Soubor")
         mnu_file.addAction(u"Převést na dēvanāgarī...",self.fileToDevanagari)
@@ -72,6 +71,7 @@ class MainWindow(QtGui.QMainWindow):
         mnu_help.addAction(u"O programu",lambda: AboutAndHelp(2).exec_())
         mnu_help.addAction(u"Licence",lambda: AboutAndHelp(3).exec_())
         self.setMenuBar(menubar)
+        self.setMaximumHeight(self.sizeHint().height())
 
     def go_src(self):
         self.pho.setText(phonetic(unicode(self.src.text())))
