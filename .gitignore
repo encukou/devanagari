@@ -3,6 +3,7 @@ from-devanagari.py
 picwork/
 *.txt
 *.txt.dev
+*.pyc
 to-devanagari.py
 
 devanagari.exe
