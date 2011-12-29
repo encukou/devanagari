@@ -22,166 +22,166 @@ import table
 from devanagari import *
 from version import version
 
-from PyQt4 import QtCore,QtGui
-from PyQt4.Qt import Qt
+from PySide import QtCore, QtGui
+from PySide.QtCore import Qt
 
 class MainWindow(QtGui.QMainWindow):
-  def __init__(self):
-    QtGui.QMainWindow.__init__(self)
-    self.setWindowTitle(u"अजगर") # ajagara
-    widget=QtGui.QWidget()
-    layout=QtGui.QGridLayout(widget)
-    self.setCentralWidget(widget)
-    self.src=src=QtGui.QLineEdit()
-    self.pho=pho=QtGui.QLineEdit()
-    self.dst=dst=textbox2=QtGui.QLineEdit()
-    copyS=QtGui.QPushButton(u"Kopírovat")
-    copyP=QtGui.QPushButton(u"Kopírovat")
-    copyD=QtGui.QPushButton(u"Kopírovat")
-    if not table.external:
-      layout.addWidget(QtGui.QLabel(u"Chyba čtení ze souboru transl_table, používám vestavěnou tabulku"),0,0,1,3)
-    layout.addWidget(src,1,1,1,2)
-    layout.addWidget(pho,2,1,1,2)
-    layout.addWidget(dst,3,1,1,2)
-    layout.setColumnStretch(1,2)
-    #layout.addWidget(copyD,1,3)
-    #layout.addWidget(copyS,2,3)
-    #layout.addWidget(copyP,3,3)
-    self.connect(src,QtCore.SIGNAL("textEdited(const QString&)"),self.go_src)
-    self.connect(pho,QtCore.SIGNAL("textEdited(const QString&)"),self.go_pho)
-    self.connect(dst,QtCore.SIGNAL("textEdited(const QString&)"),self.go_dst)
-    self.connect(copyD,QtCore.SIGNAL("clicked()"),self.copy(src))
-    self.connect(copyS,QtCore.SIGNAL("clicked()"),self.copy(pho))
-    self.connect(copyP,QtCore.SIGNAL("clicked()"),self.copy(dst))
-    #dst.setReadOnly(True)
-    font=QtGui.QFont(dst.font())
-    font.setPointSize(font.pointSize()*3)
-    dst.setFont(font)
-    layout.addWidget(QtGui.QLabel(u"Z klávesnice"),1,0,Qt.AlignRight)
-    layout.addWidget(QtGui.QLabel(u"Foneticky"),2,0,Qt.AlignRight)
-    layout.addWidget(QtGui.QLabel(u"Dēvanāgarī"),3,0,Qt.AlignRight)
-    self.setMaximumHeight(self.sizeHint().height())
-    menubar=QtGui.QMenuBar()
-    mnu_file=menubar.addMenu(u"Soubor")
-    mnu_file.addAction(u"Převést na dēvanāgarī...",self.fileToDevanagari)
-    mnu_file.addAction(u"Převést z dēvanāgarī...",self.fileToPhonetic)
-    mnu_help=menubar.addMenu(u"Nápověda")
-    mnu_help.addAction(u"Nápověda",lambda: AboutAndHelp(0).exec_())
-    mnu_help.addAction(u"Zápis fonetických značek",lambda: AboutAndHelp(1).exec_())
-    mnu_help.addSeparator()
-    mnu_help.addAction(u"O programu",lambda: AboutAndHelp(2).exec_())
-    mnu_help.addAction(u"Licence",lambda: AboutAndHelp(3).exec_())
-    self.setMenuBar(menubar)
+    def __init__(self):
+        QtGui.QMainWindow.__init__(self)
+        self.setWindowTitle(u"अजगर") # ajagara
+        widget=QtGui.QWidget()
+        layout=QtGui.QGridLayout(widget)
+        self.setCentralWidget(widget)
+        self.src=src=QtGui.QLineEdit()
+        self.pho=pho=QtGui.QLineEdit()
+        self.dst=dst=textbox2=QtGui.QLineEdit()
+        copyS=QtGui.QPushButton(u"Kopírovat")
+        copyP=QtGui.QPushButton(u"Kopírovat")
+        copyD=QtGui.QPushButton(u"Kopírovat")
+        if not table.external:
+            layout.addWidget(QtGui.QLabel(u"Chyba čtení ze souboru transl_table, používám vestavěnou tabulku"),0,0,1,3)
+        layout.addWidget(src,1,1,1,2)
+        layout.addWidget(pho,2,1,1,2)
+        layout.addWidget(dst,3,1,1,2)
+        layout.setColumnStretch(1,2)
+        #layout.addWidget(copyD,1,3)
+        #layout.addWidget(copyS,2,3)
+        #layout.addWidget(copyP,3,3)
+        self.connect(src,QtCore.SIGNAL("textEdited(const QString&)"),self.go_src)
+        self.connect(pho,QtCore.SIGNAL("textEdited(const QString&)"),self.go_pho)
+        self.connect(dst,QtCore.SIGNAL("textEdited(const QString&)"),self.go_dst)
+        self.connect(copyD,QtCore.SIGNAL("clicked()"),self.copy(src))
+        self.connect(copyS,QtCore.SIGNAL("clicked()"),self.copy(pho))
+        self.connect(copyP,QtCore.SIGNAL("clicked()"),self.copy(dst))
+        #dst.setReadOnly(True)
+        font=QtGui.QFont(dst.font())
+        font.setPointSize(font.pointSize()*3)
+        dst.setFont(font)
+        layout.addWidget(QtGui.QLabel(u"Z klávesnice"),1,0,Qt.AlignRight)
+        layout.addWidget(QtGui.QLabel(u"Foneticky"),2,0,Qt.AlignRight)
+        layout.addWidget(QtGui.QLabel(u"Dēvanāgarī"),3,0,Qt.AlignRight)
+        self.setMaximumHeight(self.sizeHint().height())
+        menubar=QtGui.QMenuBar()
+        mnu_file=menubar.addMenu(u"Soubor")
+        mnu_file.addAction(u"Převést na dēvanāgarī...",self.fileToDevanagari)
+        mnu_file.addAction(u"Převést z dēvanāgarī...",self.fileToPhonetic)
+        mnu_help=menubar.addMenu(u"Nápověda")
+        mnu_help.addAction(u"Nápověda",lambda: AboutAndHelp(0).exec_())
+        mnu_help.addAction(u"Zápis fonetických značek",lambda: AboutAndHelp(1).exec_())
+        mnu_help.addSeparator()
+        mnu_help.addAction(u"O programu",lambda: AboutAndHelp(2).exec_())
+        mnu_help.addAction(u"Licence",lambda: AboutAndHelp(3).exec_())
+        self.setMenuBar(menubar)
 
-  def go_src(self):
-    self.pho.setText(phonetic(unicode(self.src.text())))
-    self.dst.setText(devanagari(unicode(self.pho.text())))
+    def go_src(self):
+        self.pho.setText(phonetic(unicode(self.src.text())))
+        self.dst.setText(devanagari(unicode(self.pho.text())))
 
-  def go_pho(self):
-    self.dst.setText(devanagari(unicode(self.pho.text())))
-    self.src.setText(r_phonetic(unicode(self.pho.text())))
+    def go_pho(self):
+        self.dst.setText(devanagari(unicode(self.pho.text())))
+        self.src.setText(r_phonetic(unicode(self.pho.text())))
 
-  def go_dst(self):
-    self.pho.setText(r_devanagari(unicodedata.normalize('NFC',unicode(self.dst.text()))))
-    self.src.setText(r_phonetic(unicode(self.pho.text())))
+    def go_dst(self):
+        self.pho.setText(r_devanagari(unicodedata.normalize('NFC',unicode(self.dst.text()))))
+        self.src.setText(r_phonetic(unicode(self.pho.text())))
 
-  def copy(self,w):
-    return lambda: app.clipboard().setText(w.text())
+    def copy(self,w):
+        return lambda: app.clipboard().setText(w.text())
 
-  def fileToDevanagari(self):
-    self.convertFile(to_devanagari)
+    def fileToDevanagari(self):
+        self.convertFile(to_devanagari)
 
-  def fileToPhonetic(self):
-    self.convertFile(to_phonetic)
+    def fileToPhonetic(self):
+        self.convertFile(to_phonetic)
 
-  def convertFile(self,convFunction):
-    dialog=QtGui.QFileDialog(self)
-    dialog.setFileMode(dialog.ExistingFile)
-    dialog.setAcceptMode(dialog.AcceptOpen)
-    if not dialog.exec_(): return
-    dialog.setFileMode(dialog.AnyFile)
-    dialog.setAcceptMode(dialog.AcceptSave)
-    dialog.setConfirmOverwrite(True)
-    for inFileName in dialog.selectedFiles():
-      if not dialog.exec_(): return
-      for outFileName in dialog.selectedFiles():
-        outFile=codecs.open(outFileName,"w",'UTF-8')
-        inTag=False
-        for line in codecs.open(inFileName,"r",'UTF-8'):
-          while line:
-            if inTag:
-              currPart,anglebracket,line=line.partition(">")
-              print "in",currPart
-              outFile.write(currPart)
-              outFile.write(anglebracket)
-              if anglebracket: inTag=False
-            else:
-              currPart,anglebracket,line=line.partition("<")
-              print "ou",currPart
-              outFile.write(convFunction(currPart))
-              outFile.write(anglebracket)
-              if anglebracket: inTag=True
+    def convertFile(self,convFunction):
+        dialog=QtGui.QFileDialog(self)
+        dialog.setFileMode(dialog.ExistingFile)
+        dialog.setAcceptMode(dialog.AcceptOpen)
+        if not dialog.exec_(): return
+        dialog.setFileMode(dialog.AnyFile)
+        dialog.setAcceptMode(dialog.AcceptSave)
+        dialog.setConfirmOverwrite(True)
+        for inFileName in dialog.selectedFiles():
+            if not dialog.exec_(): return
+            for outFileName in dialog.selectedFiles():
+                outFile=codecs.open(outFileName,"w",'UTF-8')
+                inTag=False
+                for line in codecs.open(inFileName,"r",'UTF-8'):
+                    while line:
+                        if inTag:
+                            currPart,anglebracket,line=line.partition(">")
+                            print "in",currPart
+                            outFile.write(currPart)
+                            outFile.write(anglebracket)
+                            if anglebracket: inTag=False
+                        else:
+                            currPart,anglebracket,line=line.partition("<")
+                            print "ou",currPart
+                            outFile.write(convFunction(currPart))
+                            outFile.write(anglebracket)
+                            if anglebracket: inTag=True
 
 class HelpBrowser(QtGui.QTextBrowser):
-  def __init__(self,page=None):
-    QtGui.QTextBrowser.__init__(self)
-    self.setOpenExternalLinks(False)
-    if page is not None:
-      self.setSource(page)
+    def __init__(self,page=None):
+        QtGui.QTextBrowser.__init__(self)
+        self.setOpenExternalLinks(False)
+        if page is not None:
+            self.setSource(page)
 
-  def loadResource(self, type, name):
-    if name.scheme()=="global":
-      return QtCore.QVariant(globals()[unicode(name.host())])
-    if name.scheme()=="method":
-      return QtCore.QVariant(getattr(self,str(name.host()))(**dict([(str(key),unicode(val)) for key, val in name.queryItems()])))
+    def loadResource(self, type, name):
+        if name.scheme()=="global":
+            return QtCore.QVariant(globals()[unicode(name.host())])
+        if name.scheme()=="method":
+            return QtCore.QVariant(getattr(self,str(name.host()))(**dict([(str(key),unicode(val)) for key, val in name.queryItems()])))
 
-  def phonetic(self):
-    rv=buffer(u"")
-    rv+=u"""
-      <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+    def phonetic(self):
+        rv=buffer(u"")
+        rv+=u"""
+            <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
-      <html><head>
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-      <title>Zápis fonetických značek</title>
-      </head>
-      <body>
-      <h1>Zápis fonetických značek</h1>
-      <table cellpadding="0" cellspacing="2">
-    """
-    for key, value in r_phonetic_trie.dictionary():
-      rv+="<tr><td>%(key)s</td><td>&nbsp;</td><td>%(value)s</td></tr>" % {'key': key, 'value': value}
-    rv+=u"""
-      </table>
-      </body>
-      </html>
-    """
-    return rv
+            <html><head>
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+            <title>Zápis fonetických značek</title>
+            </head>
+            <body>
+            <h1>Zápis fonetických značek</h1>
+            <table cellpadding="0" cellspacing="2">
+        """
+        for key, value in r_phonetic_trie.dictionary():
+            rv+="<tr><td>%(key)s</td><td>&nbsp;</td><td>%(value)s</td></tr>" % {'key': key, 'value': value}
+        rv+=u"""
+            </table>
+            </body>
+            </html>
+        """
+        return rv
 
 class AboutAndHelp(QtGui.QDialog):
-  def __init__(self,start_tab=0):
-    QtGui.QDialog.__init__(self)
-    self.setWindowTitle(u"Nápověda")
-    layout=QtGui.QVBoxLayout(self)
-    tabs=QtGui.QTabWidget()
-    layout.addWidget(tabs)
-    tabs.addTab(HelpBrowser(QtCore.QUrl("global://general_help")),u"Nápověda")
-    tabs.addTab(HelpBrowser(QtCore.QUrl("method://phonetic")),u"Zápis fonetických značek")
-    tabs.addTab(HelpBrowser(QtCore.QUrl("global://credits")),u"O programu")
-    tabs.addTab(HelpBrowser(QtCore.QUrl("global://license")),u"Licence")
-    tabs.setCurrentIndex(start_tab)
+    def __init__(self,start_tab=0):
+        QtGui.QDialog.__init__(self)
+        self.setWindowTitle(u"Nápověda")
+        layout=QtGui.QVBoxLayout(self)
+        tabs=QtGui.QTabWidget()
+        layout.addWidget(tabs)
+        tabs.addTab(HelpBrowser(QtCore.QUrl("global://general_help")),u"Nápověda")
+        tabs.addTab(HelpBrowser(QtCore.QUrl("method://phonetic")),u"Zápis fonetických značek")
+        tabs.addTab(HelpBrowser(QtCore.QUrl("global://credits")),u"O programu")
+        tabs.addTab(HelpBrowser(QtCore.QUrl("global://license")),u"Licence")
+        tabs.setCurrentIndex(start_tab)
 
-  def sizeHint(self):
-    sz=QtGui.QDialog.sizeHint(self)
-    sz.setWidth(max(sz.width(),720))
-    sz.setHeight(max(sz.height(),540))
-    return sz
+    def sizeHint(self):
+        sz=QtGui.QDialog.sizeHint(self)
+        sz.setWidth(max(sz.width(),720))
+        sz.setHeight(max(sz.height(),540))
+        return sz
 
 
 def main():
-  app = QtGui.QApplication(sys.argv)
-  main=MainWindow()
-  main.show()
-  sys.exit(app.exec_())
+    app = QtGui.QApplication(sys.argv)
+    main=MainWindow()
+    main.show()
+    sys.exit(app.exec_())
 
 general_help=u"""
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -921,4 +921,4 @@ Public License instead of this License.  But first, please read
 """
 
 if __name__=="__main__":
-  main()
+    main()
