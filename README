@@ -9,6 +9,7 @@ transl_table.py is a configuration file of sorts, it completely defines the
 transcription process. It should be user-editable. If an error occurs in that
 file, the hard-wired defaults from table.py get loaded in.
 
-All Czech strings are in gui.py - translate them to another language if you
-want to. If you do, you might also want to modify the (phonetic, r_phonetic)
+All Czech strings are in gui.py - get in touch if you want a translation.
+
+You might also want to modify the (phonetic, r_phonetic)
 tables in transl_table.py and table.py to better suit your keyboard.
