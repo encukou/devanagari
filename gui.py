@@ -59,11 +59,11 @@ class MainWindow(QtGui.QMainWindow):
         dst.setFont(font)
         layout.addWidget(QtGui.QLabel(u"Z klávesnice"),1,0,Qt.AlignRight)
         layout.addWidget(QtGui.QLabel(u"Foneticky"),2,0,Qt.AlignRight)
-        layout.addWidget(QtGui.QLabel(u"Dēvanāgarī"),3,0,Qt.AlignRight)
+        layout.addWidget(QtGui.QLabel(u"Devanāgarī"),3,0,Qt.AlignRight)
         menubar=QtGui.QMenuBar()
         mnu_file=menubar.addMenu(u"Soubor")
-        mnu_file.addAction(u"Převést na dēvanāgarī...",self.fileToDevanagari)
-        mnu_file.addAction(u"Převést z dēvanāgarī...",self.fileToPhonetic)
+        mnu_file.addAction(u"Převést na devanāgarī...",self.fileToDevanagari)
+        mnu_file.addAction(u"Převést z devanāgarī...",self.fileToPhonetic)
         mnu_help=menubar.addMenu(u"Nápověda")
         mnu_help.addAction(u"Nápověda",lambda: AboutAndHelp(0).exec_())
         mnu_help.addAction(u"Zápis fonetických značek",lambda: AboutAndHelp(1).exec_())
@@ -192,7 +192,7 @@ general_help=u"""
 </head>
 <body>
 <h2>Používání programu</h2>
-<div>Do políček "Z klávesnice," "Foneticky" a "Dēvanāgarī" zapište text. Program
+<div>Do políček "Z klávesnice," "Foneticky" a "Devanāgarī" zapište text. Program
   automaticky doplní ostatní políčka.</div>
 <h2>Převody souborů</h2>
 <div>Program umí převádět textové soubory: zvolte příslušnou položku v menu
@@ -212,7 +212,7 @@ credits=u"""
  <title>Devanagari</title>
 </head>
 <body>
-<h1>Program na transkripci Dēvanāgarī</h1>
+<h1>Program na transkripci Devanāgarī</h1>
 <div>Verze %(version)s</div>
 <div>Copyright © 2008-2011, Petr Viktorin (encukou@gmail.com)</div>
 <div>Zdrojový kód je k dispozici na Githubu
